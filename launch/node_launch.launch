@@ -1,0 +1,3 @@
+<launch>
+  <node name="entry_node" type="ariac_entry_node" pkg="ariac_entry" output="screen" />
+</launch>
