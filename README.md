@@ -1,4 +1,4 @@
-# Lab 5: Ariac Entry
+# Lab 7
 ## Step 1
 Setup and enter the catkin workspace that you cloned the repository into (catkin_ws should be replaced with the name of your workspace).
 > `source /opt/ros/noetic/setup.bash`
@@ -37,11 +37,15 @@ In the src of your catkin workspace, do the following:
 `rosdep install --from-paths ecse_373_ariac --ignore-src -r -y`
 6. Build the catkin_workspace once all above steps are completed
 
-
 ## Step 4
+Clone the ik service repository into the src of the catkin workspace (the same place where the ariac entry clone is. A link to the ik service repository is below:
+[https://github.com/foodeater87/csds473_f23_msa127_ik_service]
+
+## Step 5
 Use the following launch commands to run the program:
 1. `roslaunch ariac_entry ariac_entry_launch.launch &`
-2. `roslaunch ariac_entry node_launch.launch &`
+2. `roslaunch ik_service ik_service.launch &`
+3. `roslaunch ariac_entry node_launch.launch &`
 
 ## Useful Links
 ARIAC 2019 Documentation Page:
