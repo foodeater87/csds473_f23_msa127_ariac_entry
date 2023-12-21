@@ -9,6 +9,7 @@ project(ariac_entry)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   ecse_373_ariac
+  ik_service
   roscpp
   rviz
 )
