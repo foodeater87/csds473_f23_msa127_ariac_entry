@@ -129,7 +129,8 @@ int main(int argc, char **argv)
         double posepx = pose.position.x;
         double posepy = pose.position.y;
         double posepz = pose.position.z;
-        ROS_WARN("Part pose in camera's reference frame (w,x,y,z),(X,Y,Z): (%f,%f,%f,%f),(%f,%f,%f)",poseow,poseox,poseoy,poseoz,posepx,posepy,posepz);
+        ROS_WARN("Part position in camera's reference frame: (x,y,z) = (%f,%f,%f)", posepx,posepy,posepz);
+        ROS_WARN("Part orientation in camera's reference frame: (w,x,y,z) = (%f,%f,%f,%f)",poseow,poseox,poseoy,poseoz);
         geometry_msgs::TransformStamped tfStamped;
         try {
           tfStamped = tfBuffer.lookupTransform("arm1_base_link", "logical_camera_bin4_frame",ros::Time(0.0), ros::Duration(1.0));
@@ -145,6 +146,15 @@ int main(int argc, char **argv)
         goal_pose.pose.orientation.x = 0.0;
         goal_pose.pose.orientation.y = 0.707;
         goal_pose.pose.orientation.z = 0.0;
+        double gppow = goal_pose.pose.orientation.w;
+        double gppox = goal_pose.pose.orientation.x;
+        double gppoy = goal_pose.pose.orientation.y;
+        double gppoz = goal_pose.pose.orientation.z;
+        double gpppx = goal_pose.pose.position.x;
+        double gpppy = goal_pose.pose.position.y;
+        double gpppz = goal_pose.pose.position.z;
+        ROS_WARN("Part position in arm1_base_link's reference frame: (x,y,z) = (%f,%f,%f)", gpppx,gpppy,gpppz);
+        ROS_WARN("Part orientation in arm1_base_link's reference frame: (w,x,y,z) = (%f,%f,%f,%f)", gppow,gppox,gppoy,gppoz);
       }
     }
     ros::spinOnce();
